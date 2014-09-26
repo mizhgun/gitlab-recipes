@@ -586,6 +586,12 @@ Add `nginx` user to `git` group:
     usermod -a -G git nginx
     chmod g+rx /home/git/
 
+If nginx produces 502 error:
+
+    yum install -y policycoreutils-{python,devel}
+    grep nginx /var/log/audit/audit.log | audit2allow -M nginx
+    semodule -i nginx.pp
+ 
 Finally start nginx with:
 
     service nginx start
