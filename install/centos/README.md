@@ -301,18 +301,18 @@ symlinks to the commands used by GitLab:
     ln -s /usr/pgsql-9.3/bin/pg_restore /usr/bin/pg_restore
     ln -s /usr/pgsql-9.3/bin/psql /usr/bin/psql
 
-Rename the service script:
+[SKIP IT] Rename the service script:
 
     mv /etc/init.d/{postgresql-9.3,postgresql}
 
 Initialize the database:
 
-    service postgresql initdb
+    /usr/pgsql-9.3/bin/postgresql93-setup initdb
 
 Start the service and configure service to start on boot:
 
-    service postgresql start
-    chkconfig postgresql on
+    service postgresql-9.3 start
+    chkconfig postgresql-9.3 on
 
 Configure the database user and password:
 
